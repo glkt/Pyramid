@@ -6,7 +6,9 @@
 
 http://dev.holusion.com/dev/fr/platform/unity_4/index
 
-https://shillingburg.itch.io/supersculptor
+https://shillingburg.itch.io/supersculptor  /  little scuplting game
+
+https://github.com/keijiro/unity-osc  /  Unity implementation to receive osc
 
 ## Res:
 
