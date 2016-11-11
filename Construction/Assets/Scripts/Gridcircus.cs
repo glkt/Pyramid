@@ -41,10 +41,34 @@ public class Gridcircus : MonoBehaviour {
 		*/
 	}
 
-	// check for already placed bloks
+	// check for already placed bloks with a blok in selection
 	public bool canTheBlokBePlacedIHave(Blokanatomy ana) 
 	{
+		// get the grid of the blok
 		bool[,,] holga = ana.koerper;
+
+		// get it's position
+		Vector3 positionOfHolga = ana.GetComponentInParent<Transform> ().position;
+
+		// get the boolhool
+		for (int i = 0; i < holga.GetLength (0); i++)
+		{
+			for (int j = 0; j < holga.GetLength (1); j++) 
+			{
+				for (int k = 0; k < holga.GetLength (2); k++) 
+				{
+					if (tehOneAndOnly [positionOfHolga.x + i, positionOfHolga.y + j, positionOfHolga.z + k] == true) {
+						
+						if (holga [i, j, k] != false) {
+							
+							return false;
+						}
+					}
+				}
+			}
+		}
+
+		return true;
 	}
 
 	// i need some refreshment in my inner blok placement
@@ -52,7 +76,23 @@ public class Gridcircus : MonoBehaviour {
 	{
 		// get the value of the blok
 		bool[,,] changeOfmyLife = cool.koerper;
+
 		// get it's position
 		Vector3 positionOfMychange = cool.GetComponentInParent<Transform> ().position;
+
+		// change the position
+		for (int i = 0; i < changeOfmyLife.GetLength (0); i++)
+		{
+			for (int j = 0; j < changeOfmyLife.GetLength (1); j++) 
+			{
+				for (int k = 0; k < changeOfmyLife.GetLength (2); k++) 
+				{
+					if (tehOneAndOnly [positionOfMychange.x + i, positionOfMychange.y + j, positionOfMychange.z + k] == false) {
+
+						tehOneAndOnly [positionOfMychange.x + i, positionOfMychange.y + j, positionOfMychange.z + k] = changeOfmyLife [i, j, k];
+					}
+				}
+			}
+		}
 	}
 }
