@@ -4,6 +4,8 @@ using System.Collections.Generic;
 
 public class Enzyklopedia:MonoBehaviour {
 
+	public bool printEnzyclopedia = true;
+
 	// to not have to search all over the place
 	public static Enzyklopedia instance;
 
@@ -14,25 +16,25 @@ public class Enzyklopedia:MonoBehaviour {
 	{
 		instance = this;
 
-		bool[,,] firsty = new bool[1, 1, 1];
-		firsty [0, 0, 0] = true;
-		peter.Add ("firsty", firsty);
+		bool[,,] block_01 = new bool[3, 1, 3];
+		fillTrue(block_01);
+		peter.Add ("block_01", block_01);
 
-		bool[,,] secondy = new bool[1, 2, 1];
-		secondy [0, 0, 0] = true;
-		secondy [0, 1, 0] = true;
-		peter.Add ("secondy", secondy);
+		bool[,,] block_02 = new bool[1, 3, 1];
+		fillTrue(block_02);
+		peter.Add ("block_02", block_02);
 
-		bool[,,] thirdy = new bool[2, 1, 2];
-		thirdy [0, 0, 0] = true;
-		thirdy [1, 0, 0] = true;
-		thirdy [0, 0, 1] = true;
-		thirdy [1, 0, 1] = true;
-		peter.Add ("thirdy", thirdy);
+		bool[,,] block_03 = new bool[2, 3, 2];
+		fillTrue(block_03);
+		peter.Add ("block_03", block_03);
 	}
 
-	// Use this for initialization
 	void Start () {
+
+		// print all dictionnary if wanted
+		if(printEnzyclopedia){
+			LogEnzyclopedia();
+		}
 
 	}
 	
@@ -40,4 +42,46 @@ public class Enzyklopedia:MonoBehaviour {
 	void Update () {
 	
 	}
+
+	// fill the whole array with "true" values
+	void fillTrue( bool[,,] arr){
+		int i = 0;
+		int j = 0;
+		int k = 0;
+		for(i = 0; i< arr.GetLength(0); i++){
+			for(j = 0; j< arr.GetLength(1); j++){
+				for(k = 0; k< arr.GetLength(2); k++){
+					arr[i,j,k] = true;
+				}
+			}
+		}
+	}
+
+	void LogEnzyclopedia(){ // print all dictionnary to be sure		
+
+		foreach(KeyValuePair<string,bool[,,]> keyValue in peter)
+        {
+        	string debugLine ="";
+            debugLine += keyValue.Key;
+            debugLine += ":";
+            bool[,,] val = keyValue.Value;
+            for(int i = 0; i< val.GetLength(0); i++){
+            	debugLine += " [";
+				for(int j = 0; j< val.GetLength(2); j++){
+					debugLine += "(";
+					for(int k = 0; k< val.GetLength(1); k++){
+						if( val[i,k,j] ){
+							debugLine += "1,";
+						}else{
+							debugLine += "0,";
+						}
+					}
+					debugLine += ") ";
+				}
+				debugLine += "] ";
+			}
+			Debug.Log(debugLine);
+		}
+	}
+
 }

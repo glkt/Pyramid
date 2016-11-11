@@ -1,14 +1,18 @@
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2008
 
-
+Project("{A108C077-9D4C-BA4E-22B2-3471F7CCBD14}") = "testCameraHolo", "Assembly-CSharp.csproj", "{96045D65-A45A-0FD6-778A-B7AEBB692893}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-
+		{96045D65-A45A-0FD6-778A-B7AEBB692893}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96045D65-A45A-0FD6-778A-B7AEBB692893}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96045D65-A45A-0FD6-778A-B7AEBB692893}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96045D65-A45A-0FD6-778A-B7AEBB692893}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
