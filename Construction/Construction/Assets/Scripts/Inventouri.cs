@@ -3,9 +3,9 @@ using System.Collections;
 
 public class Inventouri : MonoBehaviour {
 
-	GameObject[] inventoryItems = new GameObject[3];
+	public GameObject[] inventoryItems = new GameObject[3];
 
-	GameObject[] playerItems = new GameObject[4];
+	public GameObject[] playerItems = new GameObject[4];
 
 	// fill teh pool
 	GameObject[] itemPool;
@@ -14,28 +14,28 @@ public class Inventouri : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
-		itemPool = Resources.LoadAll ("Bloks");
+		itemPool = Resources.LoadAll<GameObject>("Bloks");
 
 		// fill the Arrays :3
-		for (int i = 0; i < inventoryItems.GetLength (); i++) {
+		for (int i = 0; i < inventoryItems.GetLength(0); i++) {
 			inventoryItems [i] = GetRandItem ();
 		}
-		for (int i = 0; i < playerItems.GetLength (); i++) {
+		for (int i = 0; i < playerItems.GetLength (0); i++) {
 			playerItems [i] = GetRandItem ();
 		}
 
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
-	
+
 	}
 
 	GameObject GetRandItem(){
-		return itemPool[Random.Range(0,itemPool.GetLength())];
+		return itemPool[Random.Range(0,itemPool.GetLength(0))];
 	}
 
-	GameObject swapItems(int playerID, int inventoryID){
+	public GameObject swapItems(int playerID, int inventoryID){
 		return inventoryItems [inventoryID];
 		GameObject placeholder = inventoryItems [inventoryID];
 		inventoryItems [inventoryID] = playerItems [playerID];
