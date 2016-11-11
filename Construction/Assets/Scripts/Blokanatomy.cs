@@ -7,7 +7,7 @@ public class Blokanatomy : MonoBehaviour {
 	public bool[,,] koerper;
 
 	// name for finding in enzyklopedia
-	//public string namae = this.name;
+	// public string namae = this.name;
 
 	// 0 = player1, 1 = player2, 2 = player3, 3 = player4
 	public int zugehoergig;
