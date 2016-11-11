@@ -4,11 +4,11 @@ using UnityEngine.Events;
 
 public class Inputry : MonoBehaviour {
 	// Players, Inputs
-	public inputTester my_inputTester;
+	//public inputTester my_inputTester;
 	public UnityEvent[,] buttons = new UnityEvent[4,5];
 
 	// Use this for initialization
-	void Start () {
+	void Awake () {
 		// Initialize the Events
 
 		for (int i = 0; i < buttons.GetLength(0); i++) {
@@ -18,7 +18,7 @@ public class Inputry : MonoBehaviour {
 				}
 			}
 		}
-		my_inputTester.Asign ();
+		//my_inputTester.Asign ();
 	}
 	
 	// Update is called once per frame
