@@ -57,7 +57,9 @@ public class Gridcircus : MonoBehaviour {
 			{
 				for (int k = 0; k < holga.GetLength (2); k++) 
 				{
-					if (tehOneAndOnly [positionOfHolga.x + i, positionOfHolga.y + j, positionOfHolga.z + k] == true) {
+					if (tehOneAndOnly [Mathf.RoundToInt(positionOfHolga.x) + i, 
+						Mathf.RoundToInt(positionOfHolga.y) + j, 
+						Mathf.RoundToInt(positionOfHolga.z) + k] == true) {
 						
 						if (holga [i, j, k] != false) {
 							
@@ -87,9 +89,13 @@ public class Gridcircus : MonoBehaviour {
 			{
 				for (int k = 0; k < changeOfmyLife.GetLength (2); k++) 
 				{
-					if (tehOneAndOnly [positionOfMychange.x + i, positionOfMychange.y + j, positionOfMychange.z + k] == false) {
+					if (tehOneAndOnly [Mathf.RoundToInt(positionOfMychange.x) + i, 
+						Mathf.RoundToInt(positionOfMychange.y) + j,
+						Mathf.RoundToInt(positionOfMychange.z) + k] == false) {
 
-						tehOneAndOnly [positionOfMychange.x + i, positionOfMychange.y + j, positionOfMychange.z + k] = changeOfmyLife [i, j, k];
+						tehOneAndOnly [Mathf.RoundToInt(positionOfMychange.x) + i, 
+						Mathf.RoundToInt(positionOfMychange.y) + j, 
+						Mathf.RoundToInt(positionOfMychange.z) + k] = changeOfmyLife [i, j, k];
 					}
 				}
 			}
