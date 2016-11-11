@@ -3,12 +3,10 @@ using System.Collections;
 using UnityEngine.Events;
 
 public class inputTester : MonoBehaviour {
-	public GameObject my_ImputryHolder;
-	private Inputry my_Inputry;
+	public Inputry my_Inputry;
 	// Use this for initialization
 	void Start () {
-
-		my_Inputry = my_ImputryHolder.GetComponent<Inputry> ();
+		Asign ();
 	}
 
 	//assígnButtons
