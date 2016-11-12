@@ -11,12 +11,11 @@ public class Blokanatomy : MonoBehaviour {
 
 	void Start () {
 
-		koerper = Enzyklopedia.instance.peter [name];
+		//koerper = Enzyklopedia.instance.peter [tag];
 	}
 	
 	// Update is called once per frame
 	void Update () {
 
-		Debug.Log (koerper);
 	}
 }

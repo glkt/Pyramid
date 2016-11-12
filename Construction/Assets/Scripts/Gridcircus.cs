@@ -3,8 +3,6 @@ using System.Collections;
 
 public class Gridcircus : MonoBehaviour {
 	
-	public int gridMaxUnits = 9;
-	public int gridSize = 1;
 	private int currentLayer;
 	private bool[,,] tehOneAndOnly;
 
@@ -13,12 +11,12 @@ public class Gridcircus : MonoBehaviour {
 		currentLayer = 0;
 
 		// initiate the grid
-		tehOneAndOnly = new bool[gridMaxUnits, gridMaxUnits, gridMaxUnits];
-		for (int i = 0; i < gridMaxUnits; i++) 
+		tehOneAndOnly = new bool[GGG.gridMaxUnits, GGG.gridMaxUnits, GGG.gridMaxUnits];
+		for (int i = 0; i < GGG.gridMaxUnits; i++) 
 		{
-			for (int j = 0; j < gridMaxUnits; j++) 
+			for (int j = 0; j < GGG.gridMaxUnits; j++) 
 			{
-				for (int k = 0; k < gridMaxUnits; k++) 
+				for (int k = 0; k < GGG.gridMaxUnits; k++) 
 				{
 					tehOneAndOnly [i, j, k] = false;
 				}
@@ -42,13 +40,13 @@ public class Gridcircus : MonoBehaviour {
 	}
 
 	// check for already placed bloks with a blok in selection
-	public bool canTheBlokBePlacedIHave(Blokanatomy ana) 
+	public bool canTheBlokBePlacedIHave(GameObject ana) 
 	{
 		// get the grid of the blok
-		bool[,,] holga = ana.koerper;
+		bool[,,] holga = Enzyklopedia.instance.peter [ana.tag];
 
 		// get it's position
-		Vector3 positionOfHolga = ana.GetComponentInParent<Transform> ().position;
+		Vector3 positionOfHolga = ana.GetComponent<Transform>().position;
 
 		// get the boolhool
 		for (int i = 0; i < holga.GetLength (0); i++)
@@ -80,7 +78,7 @@ public class Gridcircus : MonoBehaviour {
 		bool[,,] changeOfmyLife = cool.koerper;
 
 		// get it's position
-		Vector3 positionOfMychange = cool.GetComponentInParent<Transform> ().position;
+		Vector3 positionOfMychange = cool.GetComponent<Transform> ().position;
 
 		// change the position
 		for (int i = 0; i < changeOfmyLife.GetLength (0); i++)

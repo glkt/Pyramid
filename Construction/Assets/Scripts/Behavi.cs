@@ -9,6 +9,8 @@ public class Behavi : MonoBehaviour {
 	private GameObject currentlyInHand;
 	private InventouriDisplay inventory; 		//either a common inventory class, or 1 per player?
 
+	public bool canI;
+
 	void Start () {
 		
 		myInputry.buttons [myId, 0].AddListener(Right);
@@ -22,6 +24,12 @@ public class Behavi : MonoBehaviour {
 	
 	void Update () {
 	
+		// hey grid, can i place my blok?
+		if (currentlyInHand != null)
+		{
+//			canI = myGridcircus.canTheBlokBePlacedIHave(currentlyInHand.GetComponent<Blokanatomy>());
+		//	Debug.Log (canI);			
+		}
 	}
 
 	void Left()
@@ -29,6 +37,7 @@ public class Behavi : MonoBehaviour {
 		//do we have a block in our hands?
 		if (currentlyInHand != null) {
 			//then move our block left
+
 		} else {
 			//select the previous block in the inventory
 		}
@@ -73,8 +82,6 @@ public class Behavi : MonoBehaviour {
 		//do we have a block in our hands?
 		if (currentlyInHand != null) {
 
-			// hey grid, can i place my blok?
-			bool canI = myGridcircus.canTheBlokBePlacedIHave(currentlyInHand.GetComponent<Blokanatomy>());
 
 		} else {
 
@@ -92,6 +99,7 @@ public class Behavi : MonoBehaviour {
 			Quaternion hillo = new Quaternion ();
 			for (int i = 0; i < GGG.peeps; i++) {
 
+				Debug.Log (myId.ToString ());
 				if (Spawnli [i].name == myId.ToString()) {
 				
 					hello = Spawnli [i].position;
@@ -100,7 +108,8 @@ public class Behavi : MonoBehaviour {
 			}
 
 			// and initiate
-			Instantiate(currentlyInHand, hello, hillo);
+
+			if(myGridcircus.canTheBlokBePlacedIHave(currentlyInHand)) { Instantiate(currentlyInHand, hello, hillo); }
 		}
 	}
 }
