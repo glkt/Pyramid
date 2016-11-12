@@ -32,19 +32,50 @@ public class Behavi : MonoBehaviour {
 		}
 	}
 
+	void MoveDirection(int MoveX, int MoveY)
+	{
+
+		int TempAxis = MoveX;
+
+		if (myId == 1) {
+			
+			MoveX = -MoveY;
+			MoveY = MoveX;
+
+		} else if (myId == 2) {
+			
+			MoveX = -MoveY;
+			MoveY = -MoveX;
+
+		} else if (myId == 3) {
+
+			MoveX = -MoveY;
+			MoveY = MoveX;
+			
+		}
+
+		Vector3 bblu = currentlyInHand.GetComponent<Transform> ().position;
+
+		//at edge of grid?
+		if ((bblu.x += MoveX) >= 0 && (bblu.x += MoveX) <= GGG.gridSize) {
+
+			if ((bblu.y += MoveY) >= 0 && (bblu.y += MoveY) <= GGG.gridSize) {
+
+				bblu += new Vector3 (MoveX, MoveY, 0);
+
+				currentlyInHand.GetComponent<Transform> ().position = bblu;
+
+			}
+				
+		}
+	}
+
 	void Left()
 	{
 		//do we have a block in our hands?
 		if (currentlyInHand != null) {
-
-			Vector3 bblu = currentlyInHand.GetComponent<Transform> ().position;
-
-			if ((bblu.x -= GGG.gridSize) >= 0) {
-				
-				bblu -= new Vector3 (GGG.gridSize, 0, 0);
-
-			} else bblu = new Vector3 (GGG.gridMaxUnits - 1, bblu.y, bblu.z);
-
+			
+			MoveDirection (-1, 0);
 		} else {
 
 			inventory.movePointer ("left");
@@ -55,6 +86,7 @@ public class Behavi : MonoBehaviour {
 		//do we have a block in our hands?
 		if (currentlyInHand != null) {
 			//move our block right
+			MoveDirection (1, 0);
 		} else {
 
 			inventory.movePointer ("right");
@@ -65,6 +97,7 @@ public class Behavi : MonoBehaviour {
 		//do we have a block in our hands?
 		if (currentlyInHand != null) {
 			//movemovemove
+			MoveDirection (0, -1);
 		} else {
 			//do nothing i guess?
 		}
@@ -74,6 +107,7 @@ public class Behavi : MonoBehaviour {
 		//do we have a block in our hands?
 		if (currentlyInHand != null) {
 			//movemovemove
+			MoveDirection (0, 1);
 		} else {
 			//do nothing i guess?
 		}
