@@ -37,11 +37,13 @@ public class Behavi : MonoBehaviour {
 		//do we have a block in our hands?
 		if (currentlyInHand != null) {
 
-			if ((currentlyInHand.GetComponent<Transform> ().position.x -= GGG.gridSize) >= 0) {
-				
-				currentlyInHand.GetComponent<Transform> ().position.x -= GGG.gridSize;
+			Vector3 bblu = currentlyInHand.GetComponent<Transform> ().position;
 
-			} else currentlyInHand.GetComponent<Transform> ().position.x = GGG.gridMaxUnits - 1;
+			if ((bblu.x -= GGG.gridSize) >= 0) {
+				
+				bblu -= new Vector3 (GGG.gridSize, 0, 0);
+
+			} else bblu = new Vector3 (GGG.gridMaxUnits - 1, bblu.y, bblu.z);
 
 		} else {
 
