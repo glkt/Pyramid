@@ -36,10 +36,16 @@ public class Behavi : MonoBehaviour {
 	{
 		//do we have a block in our hands?
 		if (currentlyInHand != null) {
-			//then move our block left
+
+			if ((currentlyInHand.GetComponent<Transform> ().position.x -= GGG.gridSize) >= 0) {
+				
+				currentlyInHand.GetComponent<Transform> ().position.x -= GGG.gridSize;
+
+			} else currentlyInHand.GetComponent<Transform> ().position.x = GGG.gridMaxUnits - 1;
 
 		} else {
-			//select the previous block in the inventory
+
+			inventory.movePointer ("left");
 		}
 	}
 	void Right()
@@ -48,7 +54,8 @@ public class Behavi : MonoBehaviour {
 		if (currentlyInHand != null) {
 			//move our block right
 		} else {
-			//select the next block in the inventory
+
+			inventory.movePointer ("right");
 		}
 	}
 	void Up()
@@ -108,8 +115,14 @@ public class Behavi : MonoBehaviour {
 			}
 
 			// and initiate
+			if(myGridcircus.canTheBlokBePlacedIHave(currentlyInHand)) { 
 
-			if(myGridcircus.canTheBlokBePlacedIHave(currentlyInHand)) { Instantiate(currentlyInHand, hello, hillo); }
+				// add to scene
+				Instantiate(currentlyInHand, hello, hillo);
+
+				//change the grid
+				myGridcircus.changeMyInnerLifeBoi(currentlyInHand);
+			}
 		}
 	}
 }

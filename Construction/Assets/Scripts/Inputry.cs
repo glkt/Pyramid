@@ -27,25 +27,25 @@ public class Inputry : MonoBehaviour {
 
 		//horizontal postive:
 		for (int i = 0; i < buttons.GetLength(0); i++) {
-			if (Input.GetAxis ("Horizontal_" + (i+1)) > 0 && buttons[i,0] != null) {
+			if (Input.GetButtonDown ("Right_" + (i+1)) && buttons[i,0] != null) {
 				buttons [i, 0].Invoke ();
 			}
 		}
 		//horizontal negative:
 		for (int i = 0; i < buttons.GetLength(0); i++) {
-			if (Input.GetAxis ("Horizontal_" + (i+1)) < 0 && buttons[i,1] != null) {
+			if (Input.GetButtonDown ("Left_" + (i+1)) && buttons[i,1] != null) {
 				buttons [i, 1].Invoke ();
 			}
 		}
 		//vertical positive:
 		for (int i = 0; i < buttons.GetLength(0); i++) {
-			if (Input.GetAxis ("Vertical_" + (i+1)) > 0 && buttons[i,2] != null) {
+			if (Input.GetButtonDown ("Up_" + (i+1)) && buttons[i,2] != null) {
 				buttons [i, 2].Invoke ();
 			}
 		}
 		// vertical negative:
 		for (int i = 0; i < buttons.GetLength(0); i++) {
-			if (Input.GetAxis ("Vertical_" + (i+1)) < 0 && buttons[i,3] != null) {
+			if (Input.GetButtonDown ("Down_" + (i+1)) && buttons[i,3] != null) {
 				buttons [i, 3].Invoke ();
 			}
 		}

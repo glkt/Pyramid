@@ -72,10 +72,10 @@ public class Gridcircus : MonoBehaviour {
 	}
 
 	// i need some refreshment in my inner blok placement
-	private void changeMyInnerLifeBoi(Blokanatomy cool)
+	public void changeMyInnerLifeBoi(GameObject cool)
 	{
 		// get the value of the blok
-		bool[,,] changeOfmyLife = cool.koerper;
+		bool[,,] changeOfmyLife = Enzyklopedia.instance.peter [cool.tag];
 
 		// get it's position
 		Vector3 positionOfMychange = cool.GetComponent<Transform> ().position;
