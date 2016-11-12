@@ -10,15 +10,15 @@ public class Gridcircus : MonoBehaviour {
 
 	void Start () 
 	{
-		currentLayer = new int(0);
+		currentLayer = 0;
 
 		// initiate the grid
 		tehOneAndOnly = new bool[gridMaxUnits, gridMaxUnits, gridMaxUnits];
 		for (int i = 0; i < gridMaxUnits; i++) 
 		{
-			for (int j = 0; i < gridMaxUnits; j++) 
+			for (int j = 0; j < gridMaxUnits; j++) 
 			{
-				for (int k = 0; i < gridMaxUnits; k++) 
+				for (int k = 0; k < gridMaxUnits; k++) 
 				{
 					tehOneAndOnly [i, j, k] = false;
 				}

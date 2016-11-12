@@ -4,16 +4,12 @@ using UnityEngine.UI;
     
 public class InventouriDisplay : MonoBehaviour {
 
-
 	public Inventouri leBigBoss;
-
 	GameObject currObj;
-
-	int playerID = 0;
-
+	private int playerID = 0;
 	Text[] slots;
-
 	int pointer;
+
 	// Use this for initialization
 	void Start () {
 		pointer = 0;
@@ -25,6 +21,7 @@ public class InventouriDisplay : MonoBehaviour {
 //		slot2.text = leBigBoss.inventoryItems [1].name;
 //		slot3.text = leBigBoss.inventoryItems [2].name;
 
+		playerID = this.GetComponent<Behavi> ().myId;
 	}
 	
 	// Update is called once per frame
@@ -32,9 +29,10 @@ public class InventouriDisplay : MonoBehaviour {
 	
 	}
 
+	/**
 	public void setPlayerId (int id){
 		playerID = id;
-	}
+	}*/
 
 	public void movePointer(string dir){
 		if (dir == "right") {
@@ -64,7 +62,8 @@ public class InventouriDisplay : MonoBehaviour {
 		leBigBoss.refill (playerID, pointer);
 	}
 
-	GameObject getObject(){
+	public GameObject getObject(){
+		
 		return leBigBoss.playerItems[playerID];
 	}
 }

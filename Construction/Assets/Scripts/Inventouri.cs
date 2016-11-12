@@ -5,7 +5,7 @@ public class Inventouri : MonoBehaviour {
 
 	public GameObject[] inventoryItems = new GameObject[3];
 
-	public GameObject[] playerItems = new GameObject[4];
+	public GameObject[] playerItems = new GameObject[GGG.peeps];
 
 	// fill teh pool
 	GameObject[] itemPool;
@@ -32,11 +32,13 @@ public class Inventouri : MonoBehaviour {
 	}
 
 	GameObject GetRandItem(){
+		
 		return itemPool[Random.Range(0,itemPool.GetLength(0))];
 	}
 
+
 	public GameObject swapItems(int playerID, int inventoryID){
-		return inventoryItems [inventoryID];
+		return inventoryItems [inventoryID];						// when return is called, the function ends
 		GameObject placeholder = inventoryItems [inventoryID];
 		inventoryItems [inventoryID] = playerItems [playerID];
 		playerItems [playerID] = placeholder;
