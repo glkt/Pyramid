@@ -18,15 +18,15 @@ public class Enzyklopedia:MonoBehaviour {
 
 		// simple blocks one size
 
-		bool[,,] block_01 = new bool[3, 1, 3];
+		bool[,,] block_01 = new bool[1, 1, 1];
 		fillTrue(block_01);
 		peter.Add ("block_01", block_01);
 
-		bool[,,] block_02 = new bool[1, 3, 1];
+		bool[,,] block_02 = new bool[1, 1, 1];
 		fillTrue(block_02);
 		peter.Add ("block_02", block_02);
 
-		bool[,,] block_03 = new bool[2, 3, 2];
+		bool[,,] block_03 = new bool[1, 1, 1];
 		fillTrue(block_03);
 		peter.Add ("block_03", block_03);
 
@@ -59,11 +59,11 @@ public class Enzyklopedia:MonoBehaviour {
 		peter.Add ("pool_02", pool_02);
 
 		bool[,,] pool_03 = new bool[3, 1, 4];
-		pool_03[0,1,0] = false;
-		pool_03[0,1,3] = false;
-		pool_03[2,1,0] = false;
-		pool_03[2,1,3] = false;
 		fillTrue(pool_03);
+		pool_03[0,0,0] = false;
+		pool_03[0,0,3] = false;
+		pool_03[2,0,0] = false;
+		pool_03[2,0,3] = false;		
 		peter.Add ("pool_03", pool_03);
 
 		// statue
